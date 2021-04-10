@@ -10,14 +10,14 @@ import UIKit
 extension UIImageView {
     func load(url: URL) {
         let session = URLSession.shared
-        let urlRequest = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad)
+        let urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData)
             
-        let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
+        let dataTask = session.dataTask(with: url) { (data, response, error) in
             if let imageData = data {
                 DispatchQueue.main.async { self.image = UIImage(data: imageData) }
             } else {
                 // TODO: handle error
-                print("Error loading image");
+                print("Error loading image \(url.absoluteString)");
             }
         }
             

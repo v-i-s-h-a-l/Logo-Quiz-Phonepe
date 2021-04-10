@@ -9,12 +9,13 @@ import Foundation
 
 protocol PlayGameViewDelegate: class {
     func updateCurrentLogo(_ viewModel: AnyCurrentLogoViewModel)
-    func update(currentTry string: [String], hintLetters: [String], isMatched: Bool)
+    func update(currentTry string: String)
 }
 
 protocol AnyPlayGameViewModel: class {
     var currentLogoViewModel: CurrentLogoViewModel? { get set }
     var viewDelegate: PlayGameViewDelegate? { get set }
+    var hintLetters: [String] { get set }
     func reset()
     func nextLogo()
 }
@@ -22,6 +23,8 @@ protocol AnyPlayGameViewModel: class {
 class PlayGameViewModel: AnyPlayGameViewModel {
     
     var viewDelegate: PlayGameViewDelegate?
+    
+    var hintLetters: [String] = []
 
     private let logoLoader: AnyLogoLoader
     private var allLogos: [Logo] = []
@@ -41,6 +44,7 @@ class PlayGameViewModel: AnyPlayGameViewModel {
         let randomLogo = allLogos.remove(at: Int.random(in: 0..<allLogos.count))
         currentLogoViewModel = CurrentLogoViewModel(with: randomLogo)
         currentLogoViewModel?.delegate = self
+        currentLogoViewModel?.removeFromCurrentSelected(0)
         viewDelegate?.updateCurrentLogo(currentLogoViewModel!)
     }
 }
@@ -48,6 +52,12 @@ class PlayGameViewModel: AnyPlayGameViewModel {
 extension PlayGameViewModel: CurrentLogoDelegate {
 
     func update(currentTry string: [String], hintLetters: [String], isMatched: Bool) {
-        viewDelegate?.update(currentTry: string, hintLetters: hintLetters, isMatched: isMatched)
+        self.hintLetters = hintLetters
+        viewDelegate?.update(currentTry: string.joined())
+        if isMatched {
+            // increment score
+            //
+            nextLogo()
+        }
     }
 }
