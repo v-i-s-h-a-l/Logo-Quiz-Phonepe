@@ -18,6 +18,7 @@ class PlayGameViewController: UIViewController {
             hintLettersCollectionView.delegate = self
             hintLettersCollectionView.dataSource = self
             hintLettersCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "identifier")
+            hintLettersCollectionView.allowsSelection = true
         }
     }
 
@@ -41,6 +42,7 @@ class PlayGameViewController: UIViewController {
 
 extension PlayGameViewController: PlayGameViewDelegate {
     func updateCurrentLogo(_ viewModel: AnyCurrentLogoViewModel) {
+        logoImageVIew.image = nil
         logoImageVIew.load(url: viewModel.imageURL)
         currentTryLabel.text = ""
         hintLettersCollectionView.reloadData()
@@ -48,8 +50,9 @@ extension PlayGameViewController: PlayGameViewDelegate {
         // collection view reload with hint letters
     }
     
-    func update(currentTry string: [String], hintLetters: [String], isMatched: Bool) {
-        currentTryLabel.text = string.joined()
+    func update(currentTry string: String) {
+        currentTryLabel.text = string
+        hintLettersCollectionView.reloadData()
         // update collection view according to hiint letters
     }
 }
@@ -57,16 +60,23 @@ extension PlayGameViewController: PlayGameViewDelegate {
 extension PlayGameViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.currentLogoViewModel?.originalHintLettersIndexed.keys.count ?? 0
+        return viewModel.hintLetters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "identifier", for: indexPath)
-        let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 24, height: 24)))
-        cell.addSubview(label)
+        if let existingLabel = cell.subviews.first(where: { $0.isKind(of: UILabel.self) }) as? UILabel {
+            existingLabel.text = viewModel.hintLetters[indexPath.item]
+        } else {
+            let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 24, height: 24)))
+            cell.addSubview(label)
+            label.text = viewModel.hintLetters[indexPath.item]
+        }
         
-        label.text = viewModel.currentLogoViewModel?.originalHintLettersIndexed[indexPath.item]
         return cell
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.currentLogoViewModel?.appendFromIndex(indexPath.item)
+    }
 }

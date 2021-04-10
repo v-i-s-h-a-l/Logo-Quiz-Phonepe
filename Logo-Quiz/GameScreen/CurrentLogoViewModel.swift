@@ -39,17 +39,18 @@ class CurrentLogoViewModel: AnyCurrentLogoViewModel {
         guard !currentSelectedIndices.contains(index), currentSelectedIndices.count < solution.count else { return }
 
         currentSelectedIndices.append(index)
+        checkStatus()
     }
 
     func removeFromCurrentSelected(_ index: Int) {
         currentSelectedIndices.removeAll { $0 == index }
+        checkStatus()
     }
 
     private func checkStatus() {
         let currentTry = currentSelectedIndices.compactMap { originalHintLettersIndexed[$0] }
-        let hintLetters = originalHintLettersIndexed.map { (index, character) in
-            currentSelectedIndices.contains(index) ? " " : character
-        }
+        let hintLetters = Array((0..<originalHintLettersIndexed.count)
+                                    .compactMap {currentSelectedIndices.contains($0) ? " " : originalHintLettersIndexed[$0] })
         let isMatched = currentTry.joined() == solution
         delegate?.update(currentTry: currentTry, hintLetters: hintLetters, isMatched: isMatched)
     }
