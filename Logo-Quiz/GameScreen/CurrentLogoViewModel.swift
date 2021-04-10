@@ -42,8 +42,12 @@ class CurrentLogoViewModel: AnyCurrentLogoViewModel {
         checkStatus()
     }
 
-    func removeFromCurrentSelected(_ index: Int) {
-        currentSelectedIndices.removeAll { $0 == index }
+    func removeFromCurrentSelected(_ index: Int?) {
+        if let index = index {
+            currentSelectedIndices.removeAll { $0 == index }
+        } else if !currentSelectedIndices.isEmpty {
+            currentSelectedIndices.removeLast()
+        }
         checkStatus()
     }
 
