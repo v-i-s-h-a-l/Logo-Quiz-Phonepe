@@ -10,6 +10,7 @@ import Foundation
 protocol PlayGameViewDelegate: class {
     func updateCurrentLogo(_ viewModel: AnyCurrentLogoViewModel)
     func update(currentTry string: String)
+    func updateScore(_ score: String)
 }
 
 protocol AnyPlayGameViewModel: class {
@@ -28,7 +29,8 @@ class PlayGameViewModel: AnyPlayGameViewModel {
 
     private let logoLoader: AnyLogoLoader
     private var allLogos: [Logo] = []
-    
+    private var score: Int = 0
+
     var currentLogoViewModel: CurrentLogoViewModel?
 
     init(with logoLoader: AnyLogoLoader) {
@@ -57,7 +59,12 @@ extension PlayGameViewModel: CurrentLogoDelegate {
         if isMatched {
             // increment score
             //
+            score += 10
+            if allLogos.isEmpty {
+                reset()
+            }
             nextLogo()
         }
+        viewDelegate?.updateScore("Score:\n\(score)")
     }
 }

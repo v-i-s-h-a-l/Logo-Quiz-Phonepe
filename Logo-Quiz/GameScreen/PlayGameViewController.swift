@@ -11,6 +11,7 @@ class PlayGameViewController: UIViewController {
     
     private var viewModel: AnyPlayGameViewModel!
     
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var logoImageVIew: UIImageView!
     @IBOutlet weak var currentTryLabel: UILabel!
     @IBOutlet weak var hintLettersCollectionView: UICollectionView! {
@@ -45,6 +46,7 @@ class PlayGameViewController: UIViewController {
 }
 
 extension PlayGameViewController: PlayGameViewDelegate {
+    
     func updateCurrentLogo(_ viewModel: AnyCurrentLogoViewModel) {
         logoImageVIew.image = nil
         logoImageVIew.load(url: viewModel.imageURL)
@@ -58,6 +60,10 @@ extension PlayGameViewController: PlayGameViewDelegate {
         currentTryLabel.text = string
         hintLettersCollectionView.reloadData()
         // update collection view according to hiint letters
+    }
+    
+    func updateScore(_ score: String) {
+        scoreLabel.text = score
     }
 }
 

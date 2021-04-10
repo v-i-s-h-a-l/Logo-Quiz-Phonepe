@@ -11,9 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlayGameViewController" customModule="Logo_Quiz" customModuleProvider="target">
             <connections>
-                <outlet property="currentTryLabel" destination="x7d-qY-SbZ" id="iJw-jc-OLS"/>
+                <outlet property="currentTryLabel" destination="12M-bg-KNv" id="HNp-qg-Tk7"/>
                 <outlet property="hintLettersCollectionView" destination="Cg6-AF-P2s" id="JRL-lg-ZUG"/>
                 <outlet property="logoImageVIew" destination="RbS-VC-SWb" id="A5J-gz-5fb"/>
+                <outlet property="scoreLabel" destination="x7d-qY-SbZ" id="Kdp-Cx-NXE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,20 +23,33 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7d-qY-SbZ">
+                    <rect key="frame" x="16" y="177" width="41.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RbS-VC-SWb">
                     <rect key="frame" x="128" y="108" width="158" height="158"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="RbS-VC-SWb" secondAttribute="height" id="Xkl-8s-boe"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7d-qY-SbZ">
-                    <rect key="frame" x="64" y="298" width="286" height="21"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-mk-XtL">
+                    <rect key="frame" x="348" y="176" width="76" height="22"/>
+                    <state key="normal" title="Button" image="delete.left" catalog="system"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="ozp-HF-8JD"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12M-bg-KNv">
+                    <rect key="frame" x="64" y="437" width="286" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Cg6-AF-P2s">
-                    <rect key="frame" x="64" y="351" width="286" height="447"/>
+                    <rect key="frame" x="64" y="350.5" width="286" height="447.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LIf-ed-Afg">
                         <size key="itemSize" width="24" height="24"/>
@@ -44,28 +58,23 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-mk-XtL">
-                    <rect key="frame" x="348" y="176" width="76" height="22"/>
-                    <state key="normal" title="Button" image="delete.left" catalog="system"/>
-                    <connections>
-                        <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="ozp-HF-8JD"/>
-                    </connections>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="kAd-mk-XtL" firstAttribute="leading" secondItem="RbS-VC-SWb" secondAttribute="trailing" constant="62" id="6MY-WJ-ClT"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x7d-qY-SbZ" secondAttribute="trailing" constant="64" id="EXJ-tn-XO9"/>
-                <constraint firstItem="x7d-qY-SbZ" firstAttribute="top" secondItem="RbS-VC-SWb" secondAttribute="bottom" constant="32" id="Khu-wt-4fV"/>
+                <constraint firstItem="Cg6-AF-P2s" firstAttribute="leading" secondItem="12M-bg-KNv" secondAttribute="leading" constant="-64" id="7Xj-DJ-4Ag"/>
+                <constraint firstItem="Cg6-AF-P2s" firstAttribute="top" secondItem="12M-bg-KNv" secondAttribute="bottom" constant="32" id="Hdw-MO-nim"/>
                 <constraint firstItem="RbS-VC-SWb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="N5u-rs-Rhf"/>
-                <constraint firstItem="x7d-qY-SbZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="OKq-BM-C9E"/>
-                <constraint firstItem="Cg6-AF-P2s" firstAttribute="leading" secondItem="x7d-qY-SbZ" secondAttribute="leading" id="TAA-8V-Rrf"/>
-                <constraint firstItem="Cg6-AF-P2s" firstAttribute="trailing" secondItem="x7d-qY-SbZ" secondAttribute="trailing" id="dEm-7S-EHp"/>
+                <constraint firstItem="x7d-qY-SbZ" firstAttribute="centerY" secondItem="kAd-mk-XtL" secondAttribute="centerY" id="T3y-dl-4vg"/>
+                <constraint firstItem="x7d-qY-SbZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="bDx-TC-WwD"/>
+                <constraint firstItem="12M-bg-KNv" firstAttribute="trailing" secondItem="RbS-VC-SWb" secondAttribute="trailing" id="ge6-Vg-39M"/>
                 <constraint firstItem="RbS-VC-SWb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="128" id="jln-yP-FnI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cg6-AF-P2s" secondAttribute="bottom" constant="64" id="lqw-MY-jFs"/>
-                <constraint firstItem="Cg6-AF-P2s" firstAttribute="top" secondItem="x7d-qY-SbZ" secondAttribute="bottom" constant="32" id="swM-bk-AdA"/>
+                <constraint firstItem="12M-bg-KNv" firstAttribute="leading" secondItem="RbS-VC-SWb" secondAttribute="leading" id="n0p-HP-di8"/>
+                <constraint firstItem="12M-bg-KNv" firstAttribute="top" secondItem="RbS-VC-SWb" secondAttribute="bottom" constant="32" id="rqO-gV-SRk"/>
                 <constraint firstItem="kAd-mk-XtL" firstAttribute="centerY" secondItem="RbS-VC-SWb" secondAttribute="centerY" id="viu-le-njm"/>
+                <constraint firstItem="Cg6-AF-P2s" firstAttribute="trailing" secondItem="12M-bg-KNv" secondAttribute="trailing" constant="64" id="xMB-X1-tcG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RbS-VC-SWb" secondAttribute="trailing" constant="128" id="ykU-HS-0Yl"/>
             </constraints>
             <point key="canvasLocation" x="141" y="38"/>

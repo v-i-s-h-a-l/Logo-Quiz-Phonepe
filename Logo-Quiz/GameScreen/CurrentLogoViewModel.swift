@@ -36,25 +36,29 @@ class CurrentLogoViewModel: AnyCurrentLogoViewModel {
 
     func appendFromIndex(_ index: Int) {
         // already selected from that index
+        defer {
+            checkStatus()
+        }
         guard !currentSelectedIndices.contains(index), currentSelectedIndices.count < solution.count else { return }
 
         currentSelectedIndices.append(index)
-        checkStatus()
     }
 
     func removeFromCurrentSelected(_ index: Int?) {
+        defer {
+            checkStatus()
+        }
         if let index = index {
             currentSelectedIndices.removeAll { $0 == index }
         } else if !currentSelectedIndices.isEmpty {
             currentSelectedIndices.removeLast()
         }
-        checkStatus()
     }
 
     private func checkStatus() {
         let currentTry = currentSelectedIndices.compactMap { originalHintLettersIndexed[$0] }
         let hintLetters = Array((0..<originalHintLettersIndexed.count)
-                                    .compactMap {currentSelectedIndices.contains($0) ? " " : originalHintLettersIndexed[$0] })
+                                    .compactMap { currentSelectedIndices.contains($0) ? " " : originalHintLettersIndexed[$0] })
         let isMatched = currentTry.joined() == solution
         delegate?.update(currentTry: currentTry, hintLetters: hintLetters, isMatched: isMatched)
     }
