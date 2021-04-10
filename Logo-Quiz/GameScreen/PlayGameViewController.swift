@@ -38,6 +38,10 @@ class PlayGameViewController: UIViewController {
 
         viewModel.nextLogo()
     }
+    
+    @IBAction func deleteButtonTapped(_ sender: AnyObject) {
+        viewModel.currentLogoViewModel?.removeFromCurrentSelected(nil)
+    }
 }
 
 extension PlayGameViewController: PlayGameViewDelegate {

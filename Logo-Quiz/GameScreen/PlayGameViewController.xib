@@ -44,10 +44,18 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAd-mk-XtL">
+                    <rect key="frame" x="348" y="176" width="76" height="22"/>
+                    <state key="normal" title="Button" image="delete.left" catalog="system"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="-1" eventType="touchUpInside" id="ozp-HF-8JD"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="kAd-mk-XtL" firstAttribute="leading" secondItem="RbS-VC-SWb" secondAttribute="trailing" constant="62" id="6MY-WJ-ClT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="x7d-qY-SbZ" secondAttribute="trailing" constant="64" id="EXJ-tn-XO9"/>
                 <constraint firstItem="x7d-qY-SbZ" firstAttribute="top" secondItem="RbS-VC-SWb" secondAttribute="bottom" constant="32" id="Khu-wt-4fV"/>
                 <constraint firstItem="RbS-VC-SWb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="64" id="N5u-rs-Rhf"/>
@@ -57,12 +65,14 @@
                 <constraint firstItem="RbS-VC-SWb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="128" id="jln-yP-FnI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cg6-AF-P2s" secondAttribute="bottom" constant="64" id="lqw-MY-jFs"/>
                 <constraint firstItem="Cg6-AF-P2s" firstAttribute="top" secondItem="x7d-qY-SbZ" secondAttribute="bottom" constant="32" id="swM-bk-AdA"/>
+                <constraint firstItem="kAd-mk-XtL" firstAttribute="centerY" secondItem="RbS-VC-SWb" secondAttribute="centerY" id="viu-le-njm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="RbS-VC-SWb" secondAttribute="trailing" constant="128" id="ykU-HS-0Yl"/>
             </constraints>
             <point key="canvasLocation" x="141" y="38"/>
         </view>
     </objects>
     <resources>
+        <image name="delete.left" catalog="system" width="128" height="104"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
