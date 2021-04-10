@@ -18,7 +18,8 @@ class AppCoordinator {
     }
     
     func start() {
-        navigationController = UINavigationController(rootViewController: PlayGameViewController())
+        let playGameViewModel = PlayGameViewModel(with: LogoLoader())
+        navigationController = UINavigationController(rootViewController: PlayGameViewController(with: playGameViewModel))
         navigationController.navigationBar.isHidden = true
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

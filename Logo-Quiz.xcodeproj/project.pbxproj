@@ -18,6 +18,8 @@
 		C9D4BD8126216C2D0016C747 /* PlayGameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D4BD7F26216C2D0016C747 /* PlayGameViewController.xib */; };
 		C9D4BD8526216C3C0016C747 /* PlayGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD8426216C3C0016C747 /* PlayGameViewModel.swift */; };
 		C9D4BD8C26216C870016C747 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD8B26216C870016C747 /* AppCoordinator.swift */; };
+		C9D4BD9226216E7E0016C747 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD9126216E7E0016C747 /* Logo.swift */; };
+		C9D4BD9526216F940016C747 /* LogoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD9426216F940016C747 /* LogoLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		C9D4BD7F26216C2D0016C747 /* PlayGameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayGameViewController.xib; sourceTree = "<group>"; };
 		C9D4BD8426216C3C0016C747 /* PlayGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameViewModel.swift; sourceTree = "<group>"; };
 		C9D4BD8B26216C870016C747 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		C9D4BD9126216E7E0016C747 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		C9D4BD9426216F940016C747 /* LogoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +70,11 @@
 		C9D4BD51262167660016C747 /* Logo-Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				C9D4BD67262168360016C747 /* DataFetching */,
+				C9D4BD8F26216E540016C747 /* Models */,
 				C9D4BD7D26216C0C0016C747 /* GameScreen */,
 				C9D4BD6E262168C40016C747 /* Utilities */,
 				C9D4BD6A262168570016C747 /* Resources */,
-				C9D4BD67262168360016C747 /* Network */,
 				C9D4BD52262167660016C747 /* AppDelegate.swift */,
 				C9D4BD54262167660016C747 /* SceneDelegate.swift */,
 				C9D4BD60262167660016C747 /* Info.plist */,
@@ -78,11 +83,12 @@
 			path = "Logo-Quiz";
 			sourceTree = "<group>";
 		};
-		C9D4BD67262168360016C747 /* Network */ = {
+		C9D4BD67262168360016C747 /* DataFetching */ = {
 			isa = PBXGroup;
 			children = (
+				C9D4BD9426216F940016C747 /* LogoLoader.swift */,
 			);
-			path = Network;
+			path = DataFetching;
 			sourceTree = "<group>";
 		};
 		C9D4BD6A262168570016C747 /* Resources */ = {
@@ -112,6 +118,14 @@
 				C9D4BD8426216C3C0016C747 /* PlayGameViewModel.swift */,
 			);
 			path = GameScreen;
+			sourceTree = "<group>";
+		};
+		C9D4BD8F26216E540016C747 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C9D4BD9126216E7E0016C747 /* Logo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +205,8 @@
 				C9D4BD7826216A990016C747 /* UIImage+fromURL.swift in Sources */,
 				C9D4BD8526216C3C0016C747 /* PlayGameViewModel.swift in Sources */,
 				C9D4BD70262168EE0016C747 /* Bundle+decode.swift in Sources */,
+				C9D4BD9226216E7E0016C747 /* Logo.swift in Sources */,
+				C9D4BD9526216F940016C747 /* LogoLoader.swift in Sources */,
 				C9D4BD8C26216C870016C747 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
