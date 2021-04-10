@@ -13,7 +13,7 @@ enum LogoGroup {
     
     var fileName: String {
         switch self {
-        case .all: return "Logos"
+        case .all: return "Logos.json"
         }
     }
 }

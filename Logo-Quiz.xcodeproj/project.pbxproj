@@ -20,6 +20,8 @@
 		C9D4BD8C26216C870016C747 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD8B26216C870016C747 /* AppCoordinator.swift */; };
 		C9D4BD9226216E7E0016C747 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD9126216E7E0016C747 /* Logo.swift */; };
 		C9D4BD9526216F940016C747 /* LogoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD9426216F940016C747 /* LogoLoader.swift */; };
+		C9D4BD9A262175110016C747 /* String+jumbled.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD99262175110016C747 /* String+jumbled.swift */; };
+		C9D4BD9D26217BD40016C747 /* CurrentLogoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D4BD9C26217BD40016C747 /* CurrentLogoViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		C9D4BD8B26216C870016C747 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		C9D4BD9126216E7E0016C747 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		C9D4BD9426216F940016C747 /* LogoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoLoader.swift; sourceTree = "<group>"; };
+		C9D4BD99262175110016C747 /* String+jumbled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+jumbled.swift"; sourceTree = "<group>"; };
+		C9D4BD9C26217BD40016C747 /* CurrentLogoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLogoViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 			children = (
 				C9D4BD6F262168EE0016C747 /* Bundle+decode.swift */,
 				C9D4BD7726216A990016C747 /* UIImage+fromURL.swift */,
+				C9D4BD99262175110016C747 /* String+jumbled.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -113,9 +118,11 @@
 		C9D4BD7D26216C0C0016C747 /* GameScreen */ = {
 			isa = PBXGroup;
 			children = (
+				C9D4BDA02621855E0016C747 /* CollectionCell */,
 				C9D4BD7E26216C2D0016C747 /* PlayGameViewController.swift */,
 				C9D4BD7F26216C2D0016C747 /* PlayGameViewController.xib */,
 				C9D4BD8426216C3C0016C747 /* PlayGameViewModel.swift */,
+				C9D4BD9C26217BD40016C747 /* CurrentLogoViewModel.swift */,
 			);
 			path = GameScreen;
 			sourceTree = "<group>";
@@ -126,6 +133,13 @@
 				C9D4BD9126216E7E0016C747 /* Logo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C9D4BDA02621855E0016C747 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,8 +215,10 @@
 			files = (
 				C9D4BD8026216C2D0016C747 /* PlayGameViewController.swift in Sources */,
 				C9D4BD53262167660016C747 /* AppDelegate.swift in Sources */,
+				C9D4BD9A262175110016C747 /* String+jumbled.swift in Sources */,
 				C9D4BD55262167660016C747 /* SceneDelegate.swift in Sources */,
 				C9D4BD7826216A990016C747 /* UIImage+fromURL.swift in Sources */,
+				C9D4BD9D26217BD40016C747 /* CurrentLogoViewModel.swift in Sources */,
 				C9D4BD8526216C3C0016C747 /* PlayGameViewModel.swift in Sources */,
 				C9D4BD70262168EE0016C747 /* Bundle+decode.swift in Sources */,
 				C9D4BD9226216E7E0016C747 /* Logo.swift in Sources */,
